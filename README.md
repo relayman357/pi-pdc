@@ -59,6 +59,17 @@ https://relayman.org/pdc/pipdc.html
 
 ## Project Status
 
+
+---
+
+## Example Hardware Setup
+
+I developed Pi PDC using a very simple hardware configuration consisting of a Raspberry Pi 4, an external USB SSD, an SEL-735 Power Quality Meter, an SEL-2401 Satellite Clock, an inexpensive GPS antenna, and a small Ethernet switch. My initial motivation was to simply track voltage outages so I focused on data compression (only save data if it is changeing by more than some percentage of nominal). I have since added the option to capture every PMU sample.  The SEL-734 can stream at 20 Hz, the SEL-351A and SEL-735 at 60 Hz.  The SEL-735 also streams rate-of-change-of-frequency (ROCOF) data along with the frequency which is nice. This Pi PDC by no means requires an SEL PMU, any compliant PMU will work. A lot of SEL gear is available on Ebay for decent prices from time-to-time.   
+
+![Simple Pi PDC Hardware Setup](images/simple_hardware_setup.png)
+
+The Raspberry Pi runs the Pi PDC software and stores data on the external SSD. The SEL-735 streams synchrophasor data to the Pi using IEEE C37.118. The SEL-2401 provides GPS-disciplined time synchronization, and the GPS antenna can be an inexpensive one in my experience. A small Ethernet switch ties the components together. This inexpensive setup has proven to be reliable for long-term synchrophasor data collection.  Make sure to power all gear from a UPS if you want it to ride through an outage, and note that many PMUs will not stream when measured voltage is out of some range (e.g. less than 5% of nominal etc.).
+
 **Beta**
 
 This software is intended for monitoring, testing, research, and engineering applications. It has not been certified for protective relaying, revenue metering, grid control, or other safety-critical applications. Users are responsible for validating its suitability and accuracy for their application.
