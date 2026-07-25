@@ -1,6 +1,6 @@
 # Pi PDC
 
-**Pi PDC** is a lightweight Python phasor data collector for Raspberry Pi, Windows, and other systems running Python 3.9 or newer.
+**Pi PDC** is a lightweight Python phasor data collector (concentrator) for Raspberry Pi, Windows, and other systems running Python 3.9 or newer.
 
 It records IEEE C37.118 synchrophasor streams and SEL Fast Message data in an SQLite database. During steady-state conditions it stores periodic heartbeat records; during disturbances it records every sample, including configurable pre-trigger and post-trigger data.
 
